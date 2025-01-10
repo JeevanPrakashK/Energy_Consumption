@@ -160,11 +160,16 @@
       </div>
       <div class="output-container">
         <div class="output">
-          <h1>Output</h1>
+          <h1>Result</h1>
           {% if prediction_text %}
           <p>Predicted Energy Consumption:{{ prediction_text }}</p>
           <p>Estimated Cost:{{ cost_text }}</p>
-          <a href="dashboard.html" class="nav">View Analysis</a>
+          <a
+            href="analysis.html
+          "
+            class="nav"
+            >View Analysis</a
+          >
           {% elif error_text %}
           <p class="error">{{ error_text }}</p>
           {% endif %}

@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import pandas as pd
 import requests
+import matplotlib as plt
 
 # Load models and scaler
 scaler_path = 'scaler.pkl'
@@ -14,10 +15,6 @@ data = pd.read_csv(data_path)
 
 app = Flask(__name__)
 
-# API_KEY = '269cd9d63b71b57a3134fbe597aceb8b'
-# CITY = 'Chennai'
-# BASE_URL = f'http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric'
-
 @app.route('/')
 def home():
     return render_template('dashboard.html')
@@ -25,6 +22,11 @@ def home():
 @app.route('/dashboard.html')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/analysis.html')
+def analysis():
+    return render_template('analysis.html')
+
 
 @app.route('/predict.html',methods=['GET', 'POST'])
 def predict():
